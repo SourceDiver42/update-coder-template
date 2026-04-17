@@ -29,6 +29,7 @@ Update coder templates automatically
 | `message`                 | Update message (similar to commit messages)                                                                    | -                           |
 | `dry_run`                 | Dry run mode.                                                                                                  | `false`                     |
 | `display_name`            | Template display name, useful to give the template a user-friendly display name                                | Empty                       |
+| `description`             | Set the template description                                                                                   | Empty                       |
 
 ## Examples
 

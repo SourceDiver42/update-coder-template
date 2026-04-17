@@ -49,6 +49,9 @@ inputs:
   display_name:
     description: "Template display name, useful to give the template a user-friendly display name"
     required: false
+  description:
+    description: "Set the template description"
+    required: false
 
 runs:
   using: "composite"

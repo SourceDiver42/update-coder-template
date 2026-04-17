@@ -60,6 +60,11 @@ if [ -n "${CODER_TEMPLATE_DISPLAY_NAME}" ]; then
   edit_command+=" --display-name \"${CODER_TEMPLATE_DISPLAY_NAME}\""
 fi
 
+# Add description to the edit command if specified
+if [ -n "${CODER_TEMPLATE_DESCRIPTION}" ]; then
+  edit_command+=" --description \"${CODER_TEMPLATE_DESCRIPTION}\""
+fi
+
 # Append the template id at the end
 edit_command+= " ${CODER_TEMPLATE_ID}"
 
