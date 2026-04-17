@@ -11,8 +11,9 @@ echo "CODER_TEMPLATE_ID: ${CODER_TEMPLATE_ID}"
 : "${CODER_TEMPLATE_DIR:?CODER_TEMPLATE_DIR not set or empty}"
 echo "CODER_TEMPLATE_DIR: ${CODER_TEMPLATE_DIR}"
 
-# Construct push command
+# Construct push and edit commands
 push_command="coder templates push ${CODER_TEMPLATE_ID} --directory ./${CODER_TEMPLATE_DIR}"
+edit_command="coder templates edit"
 
 # Add message to the push command if specified
 if [ -n "${CODER_TEMPLATE_MESSAGE}" ]; then
@@ -53,6 +54,16 @@ if [ "${CODER_TEMPLATE_DRY_RUN}" = "false" ]; then
   echo "A new version of ${CODER_TEMPLATE_DIR} is pushed to ${CODER_URL} successfully."
   exit 0
 fi
-echo "Dry run is enabled. The following command will be executed:"
+
+# Add display name to the edit command if specified 
+if [ -n "${CODER_TEMPLATE_DISPLAY_NAME}" ]; then
+  edit_command+=" --display-name \"${CODER_TEMPLATE_DISPLAY_NAME}\""
+fi
+
+# Append the template id at the end
+edit_command+= " ${CODER_TEMPLATE_ID}"
+
+echo "Dry run is enabled. The following commands will be executed:"
 echo ${push_command}
+echo ${edit_command}
 echo "A new version of ${CODER_TEMPLATE_DIR} is pushed to ${CODER_URL} successfully."

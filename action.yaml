@@ -46,6 +46,9 @@ inputs:
     description: "Ignore warnings about not having a .terraform.lock.hcl file present in the template."
     required: false
     default: "false"
+  display_name:
+    description: "Template display name, useful to give the template a user-friendly display name"
+    required: false
 
 runs:
   using: "composite"
@@ -69,3 +72,6 @@ runs:
         CODER_PROVISIONER_TAG: ${{ inputs.provisioner_tag }}
         CODER_IGNORE_LOCKFILE: ${{ inputs.ignore_lockfile }}
         CODER_TEMPLATE_ORGANIZATION: ${{ inputs.organization }}
+        CODER_TEMPLATE_DISPLAY_NAME: ${{ inputs.display_name }}
+        CODER_TEMPLATE_DESCRIPTION: ${{ inputs.description }}
+        CODER_TEMPLATE_ICON: ${{ inputs.icon }}
