@@ -30,6 +30,7 @@ Update coder templates automatically
 | `dry_run`                 | Dry run mode.                                                                                                  | `false`                     |
 | `display_name`            | Template display name, useful to give the template a user-friendly display name                                | Empty                       |
 | `description`             | Set the template description                                                                                   | Empty                       |
+| `icon`                    | Path to the icon of the template.URL (data: or https:), URL path (/emojis/1f44d.png), or an emoji like :code:  | `:code:`                    |
 
 ## Examples
 

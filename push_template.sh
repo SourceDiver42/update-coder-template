@@ -65,6 +65,11 @@ if [ -n "${CODER_TEMPLATE_DESCRIPTION}" ]; then
   edit_command+=" --description \"${CODER_TEMPLATE_DESCRIPTION}\""
 fi
 
+# Set the template icon (default is :code:)
+if [ -n "${CODER_TEMPLATE_ICON}" ]; then
+  edit_command+=" --icon \"${CODER_TEMPLATE_ICON}\""
+fi
+
 # Append the template id at the end
 edit_command+= " ${CODER_TEMPLATE_ID}"
 

@@ -52,6 +52,10 @@ inputs:
   description:
     description: "Set the template description"
     required: false
+  icon:
+    description: "Path to the icon of the template. Can be a URL, either data: or https:, a URL path (/emojis/1f44d.png), or an emoji like :code:"
+    required: false
+    default: ":coder:"
 
 runs:
   using: "composite"
