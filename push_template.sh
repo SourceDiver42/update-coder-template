@@ -63,7 +63,7 @@ if [ -n "${CODER_TEMPLATE_ICON}" ]; then
 fi
 
 # Append the template id at the end
-edit_command+= " ${CODER_TEMPLATE_ID}"
+edit_command+=" \"${CODER_TEMPLATE_ID}\""
 
 # Execute the push command if no dry run
 if [ "${CODER_TEMPLATE_DRY_RUN}" = "false" ]; then
