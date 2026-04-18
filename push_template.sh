@@ -47,14 +47,6 @@ fi
 # Add confirmation flag to the push command
 push_command+=" --yes"
 
-# Execute the push command if no dry run
-if [ "${CODER_TEMPLATE_DRY_RUN}" = "false" ]; then
-  echo "Pushing ${CODER_TEMPLATE_DIR} to ${CODER_URL}..."
-  eval ${push_command}
-  echo "A new version of ${CODER_TEMPLATE_DIR} is pushed to ${CODER_URL} successfully."
-  exit 0
-fi
-
 # Add display name to the edit command if specified 
 if [ -n "${CODER_TEMPLATE_DISPLAY_NAME}" ]; then
   edit_command+=" --display-name \"${CODER_TEMPLATE_DISPLAY_NAME}\""
@@ -72,6 +64,16 @@ fi
 
 # Append the template id at the end
 edit_command+= " ${CODER_TEMPLATE_ID}"
+
+# Execute the push command if no dry run
+if [ "${CODER_TEMPLATE_DRY_RUN}" = "false" ]; then
+  echo "Pushing ${CODER_TEMPLATE_DIR} to ${CODER_URL}..."
+  eval ${push_command}
+  echo "Updating properties of ${CODER_TEMPLATE_DIR}..."
+  eval ${edit_command}
+  echo "A new version of ${CODER_TEMPLATE_DIR} is pushed to ${CODER_URL} successfully."
+  exit 0
+fi
 
 echo "Dry run is enabled. The following commands will be executed:"
 echo ${push_command}
